@@ -1,0 +1,21 @@
+<div class="grid-container">
+  <table *ngIf="(grid$ | async) as grid">
+    <tbody>
+      <tr *ngFor="let row of grid">
+        <td *ngFor="let cell of row">{{ cell }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="grid-actions">
+    <button mat-raised-button color="primary" (click)="startGenerator()">Start Generator</button>
+
+    <div class="code">Code: {{ code$ | async }}</div>
+
+    <mat-form-field>
+      <input matInput placeholder="Bias" #biasInput (keyup)="setBias(biasInput.value)">
+    </mat-form-field>
+  </div>
+
+  <a mat-button color="primary" routerLink="/payments">Payments</a>
+</div>

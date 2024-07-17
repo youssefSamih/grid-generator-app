@@ -1,0 +1,38 @@
+.grid-container {
+  padding: 0 100px;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: center;
+
+    tbody {
+      tr {
+        &:nth-child(odd) {
+          background-color: #f2f2f2;
+        }
+
+        &:nth-child(even) {
+          background-color: #ffffff;
+        }
+      }
+
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+
+        &:hover {
+          background-color: #f9f9f9;
+        }
+      }
+    }
+  }
+
+  .grid-actions {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+  }
+}

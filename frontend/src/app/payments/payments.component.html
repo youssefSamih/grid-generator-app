@@ -1,0 +1,24 @@
+<mat-card class="payments-container">
+  <mat-card-title>Current Code: {{ code$ | async }}</mat-card-title>
+
+  <mat-card-content>
+    <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input matInput placeholder="Payment Name" formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="number" placeholder="Amount" formControlName="amount">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="!paymentForm.valid">Add Payment</button>
+    </form>
+  </mat-card-content>
+
+  <h3>Payments List</h3>
+  <mat-list>
+    <mat-list-item *ngFor="let payment of payments$ | async">
+      {{ payment.name }} - ${{ payment.amount }} (Code: {{ payment.code }})
+    </mat-list-item>
+  </mat-list>
+</mat-card>
